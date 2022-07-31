@@ -12,3 +12,7 @@ pyvenv.cfg
 pip-selfcheck.json
 *.pyc
 © 2021 GitHub, Inc.
+
+#exe化によって出現したフォルダ
+src/build
+src/analyze_credit_card.spec
