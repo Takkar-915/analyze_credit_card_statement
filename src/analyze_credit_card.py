@@ -1,4 +1,3 @@
-from operator import index
 import pandas as pd
 import numpy as np
 import openpyxl
@@ -23,10 +22,29 @@ class Analyze_credit_card():
 
         Basic_inf.csv_file_path = filedialog.askopenfilename(title= title,filetypes= filetype)
 
-        former_csv_file = pd.read_csv(Basic_inf.csv_file_path,encoding='utf-8-sig')
+        try:
+            former_csv_file = pd.read_csv(Basic_inf.csv_file_path,encoding='utf-8-sig')
 
-        return former_csv_file
+            return former_csv_file
 
+        except UnicodeDecodeError as e:
+            print('このツールで処理可能な文字コードではありません。')
+            print('ダウンロードした利用明細ファイルの文字コードを変更せずに実行してください。')
+
+            while True:
+                enter = input('Enterを押したらプロンプトが閉じられます')
+                if enter =='':
+                    exit()
+            
+        except pd.errors.EmptyDataError as e:
+            print('csvファイルの中身が空っぽです。')
+
+            while True:
+                enter = input('Enterを押したらプロンプトが閉じられます')
+                if enter =='':
+                    exit()
+                    
+        
     #基本的な利用状況の確認
     def analyze_payment_method(df: pd):
 
@@ -202,7 +220,7 @@ class Analyze_credit_card():
         while True:
             enter = input('Enterを押したらプロンプトが閉じられます')
             if enter =='':
-                break
+                exit()
 
 #実行
 if __name__ == '__main__':
