@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import openpyxl
+import sys
 from tkinter import filedialog
 import matplotlib.pyplot as plt
 import io
@@ -34,7 +35,7 @@ class Analyze_credit_card():
             while True:
                 enter = input('Enterを押したらプロンプトが閉じられます')
                 if enter =='':
-                    exit()
+                    sys.exit()
             
         except pd.errors.EmptyDataError as e:
             print('csvファイルの中身が空っぽです。')
@@ -42,7 +43,7 @@ class Analyze_credit_card():
             while True:
                 enter = input('Enterを押したらプロンプトが閉じられます')
                 if enter =='':
-                    exit()
+                    sys.exit()
                     
         
     #基本的な利用状況の確認
@@ -50,7 +51,6 @@ class Analyze_credit_card():
 
         index = ['1回払い','分割払い','リボ払い','本人の使用','家族の使用','手数料']
         about_payment_method = pd.DataFrame(index = index,columns=['利用状況'])
-        #about_payment_method.fillna('0',inplace=True)
 
         #支払方法の確認
         if df['支払方法'].str.contains('1回払い').any():
@@ -220,7 +220,7 @@ class Analyze_credit_card():
         while True:
             enter = input('Enterを押したらプロンプトが閉じられます')
             if enter =='':
-                exit()
+                sys.exit()
 
 #実行
 if __name__ == '__main__':
