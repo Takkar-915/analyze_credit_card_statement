@@ -16,3 +16,5 @@ pip-selfcheck.json
 #exe化によって出現したフォルダ
 src/build
 src/analyze_credit_card.spec
+
+analyze_credit_card
