@@ -17,4 +17,4 @@ pip-selfcheck.json
 src/build
 src/analyze_credit_card.spec
 
-analyze_credit_card
+analyze_credit_card_statement
